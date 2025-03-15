@@ -1,70 +1,13 @@
+import { STARTUPS_QUERY } from "@/sanity/lib/query"
 import SearchForm from "../../components/SearchForm"
 import StartupCard from "../../components/StartupCard"
+import { sanityFetch,SanityLive } from "@/sanity/lib/live"
 
 
 export default async function Home( {searchParams} ) {
   const query = (await searchParams).query
-
-  const posts = [ {
-     _createdAt: new Date(),
-     author: {_id: 1,name:'Shafiq'},
-     _id: 1,
-     views: 10,
-     image: 'https://www.4cpl.tech/ast/uploads/2023/06/Web-Development.jpg',
-     description: 'Helphelp hellothere',
-     category: 'pro',
-     title: 'web-dev',
-
-  },{
-    _createdAt: new Date(),
-     author: {_id: 1,name:'Shafiq'},
-     _id: 2,
-     views: 10,
-     image: 'https://www.4cpl.tech/ast/uploads/2023/06/Web-Development.jpg',
-     description: 'Helphelp hellothere',
-     category: 'pro',
-     title: 'BlockChain',
-  },{
-    _createdAt: new Date(),
-     author: {_id: 1,name:'Shafiq'},
-     _id: 3,
-     views: 10,
-     image: 'https://www.4cpl.tech/ast/uploads/2023/06/Web-Development.jpg',
-     description: 'Helphelp hellothere',
-     category: 'pro',
-     title: 'web-dev',
-  },{
-    _createdAt: new Date(),
-     author: {_id: 1,name:'Shafiq'},
-     _id: 4,
-     views: 10,
-     image: 'https://www.4cpl.tech/ast/uploads/2023/06/Web-Development.jpg',
-     description: 'Helphelp hellothere',
-     category: 'pro',
-     title: 'web-dev',
-  },{
-    _createdAt: new Date(),
-     author: {_id: 1,name:'Shafiq'},
-     _id: 5,
-     views: 10,
-     image: 'https://www.4cpl.tech/ast/uploads/2023/06/Web-Development.jpg',
-     description: 'Helphelp hellothere',
-     category: 'pro',
-     title: 'web-dev',
-  },{
-    _createdAt: new Date(),
-     author: {_id: 1,name:'Shafiq'},
-     _id: 6,
-     views: 10,
-     image: 'https://www.4cpl.tech/ast/uploads/2023/06/Web-Development.jpg',
-     description: 'Helphelp hellothere',
-     category: 'pro',
-     title: 'web-dev',
-  },
-
-  
-]
-  
+  const params = { search : query || null }
+  const {data: posts} = await sanityFetch({query : STARTUPS_QUERY, params})
   return(
     <>
         <section className="pink_container">
@@ -95,6 +38,7 @@ export default async function Home( {searchParams} ) {
           </ul>
 
         </section>
+        <SanityLive/>
     </>
   
   ) 
