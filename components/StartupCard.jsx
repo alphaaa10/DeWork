@@ -6,7 +6,7 @@ import { Button } from "./ui/button"
 
  const StartupCard = ( {post} ) =>{
 
-    const { _createdAt , _id,views , author:{authorId , name} , image ,title , description , category} = post
+    const { _createdAt , _id,views , author:{authorId , name} , image ,title , description , category } = post
 
 
     return(

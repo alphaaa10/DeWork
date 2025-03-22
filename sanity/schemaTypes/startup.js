@@ -43,5 +43,15 @@ export const startup = defineType({
             name: 'pitch',
             type :'markdown'
         }),
+        defineField({
+            name: 'emailId',
+            type :'string',
+            validation: (Rule) => Rule.required()
+        }),
+        defineField({
+            name: 'PhoneNum',
+            type :'number',
+            validation: (Rule) => Rule.required()
+        }),
     ],
 })
